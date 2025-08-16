@@ -1,0 +1,151 @@
+/* Navbar custom style */
+.custom-navbar {
+  background: linear-gradient(90deg, #11998e, #38ef7d) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.custom-navbar .nav-link,
+.custom-navbar .navbar-brand {
+  color: #fff !important;
+  font-weight: 500;
+}
+
+.custom-navbar .btn-outline-light {
+  border-color: white;
+  color: white;
+}
+
+.custom-navbar .btn-outline-light:hover {
+  background: white;
+  color: #11998e;
+}
+
+/* General UI */
+body {
+    background: #f8f9fa;
+    font-family: "Inter", "Segoe UI", sans-serif;
+}
+.card {
+    border-radius: 12px;
+}
+.btn {
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+}
+.btn:hover {
+    transform: translateY(-2px);
+}
+.table-hover tbody tr:hover {
+    background-color: #f1f8ff;
+}
+input, textarea {
+    border-radius: 8px !important;
+    outline: 1px solid #0d6efd;
+}
+
+/* Footer style */
+.footer {
+  background: #222;
+  color: #bbb;
+  padding: 20px 0;
+}
+
+.footer a {
+  color: #38ef7d;
+  margin: 0 10px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #fff;
+}
+
+/* 📱 Responsive tweaks */
+
+@media (min-width: 990px) {
+    .container{
+        width: 70%;
+    }
+}
+
+/* Between 770px and above – normal margins */
+@media (max-width: 770px) {
+    .custom-container {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    .action-btns .btn {
+        flex: 1 1 48%;
+    }
+}
+
+/* At 550px and below → true mobile layout */
+@media (max-width: 550px) {
+    /* Stack buttons vertically */
+    .action-btns {
+        flex-direction: column;
+    }
+    .action-btns .btn {
+        flex: 1 1 100%;
+    }
+
+    /* Table text scaling */
+    table td, table th {
+        font-size: 0.85rem;
+        padding: 6px;
+    }
+
+    /* Make long text wrap nicely */
+    td {
+        white-space: normal;
+        word-wrap: break-word;
+    }
+
+    /* Center headings */
+    h2, h4 {
+        text-align: center;
+    }
+}
+/* Responsive footer */
+@media (max-width: 400px) {
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+/* Custom responsive table */
+.table-responsive-custom {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table-responsive-custom table {
+  min-width: 450px; /* 👈 keeps width fixed after 450px */
+  border-collapse: collapse;
+}
+
+
+.update-container {
+  background: #ffffff;
+  border-left: 6px solid #0d6efd; /* nice accent */
+  transition: 0.3s ease;
+  padding: 20px;
+}
+
+.update-container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+.update-container h2 {
+  color: #0d6efd; /* Bootstrap primary color */
+}
+
+.update-container .form-control:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 6px rgba(13,110,253,0.4);
+}
+

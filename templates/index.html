@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock title %}
+{% block body %}
+<div class="container custom-container">
+
+    <!-- Form Card -->
+    <div class="card shadow-sm border-0 rounded-3">
+        <div class="card-body">
+            <h2 class="card-title mb-4 text-center text-primary">✨ Add a ToDo</h2>
+            <form action="/" method="POST">
+                <div class="mb-3">
+                    <label for="todoTitle" class="form-label fw-semibold">Todo Title</label>
+                    <input type="text" class="form-control" name="todoTitle" id="todoTitle" placeholder="Enter task title">
+                </div>
+                <div class="mb-3">
+                    <label for="desc" class="form-label fw-semibold">Description</label>
+                    <textarea name="desc" class="form-control" id="desc" rows="2" placeholder="Enter task details"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">➕ Add Task</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Todo List -->
+    <div class="card shadow-sm border-0 rounded-3">
+        <div class="card-body">
+            {% if allTodo|length == 0 %}
+            <div class="text-center py-4">
+                <h4 class="text-muted">No Records Found</h4>
+                <div class="alert alert-secondary mt-3" role="alert">
+                    Start by adding your first ToDo 🚀
+                </div>
+            </div>
+            {% else %}
+            <h4 class="mb-3 text-dark">📋 Your ToDo List</h4>
+            <div class="table-responsive table-responsive-custom">
+                <table class="table table-hover align-middle table table-bordered">
+                    <thead class="table-primary">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Created Date</th>
+                            <th scope="col" class="text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for todo in allTodo %}
+                        <tr>
+                            <th scope="row">{{ loop.index }}</th>
+                            <td class="fw-semibold">{{ todo.title }}</td>
+                            <td>{{ todo.desc }}</td>
+                            <td>{{ todo.created_at.date() }}</td>
+                            <td class="text-center">
+                                <div class="d-flex flex-wrap gap-2 justify-content-center action-btns">
+                                    <a href="/update/{{todo.sno}}" class="btn btn-sm btn-outline-primary flex-fill">✏️ Edit</a>
+                                    <a href="/delete/{{todo.sno}}" class="btn btn-sm btn-outline-danger flex-fill">🗑 Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock body %}
